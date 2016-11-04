@@ -1,0 +1,17 @@
+<div *ngIf="album">
+  <p class="title is-2">{{album.title}}</p>
+  <a [routerLink]="['/albums', album.id, 'upload']" class="button">
+    <span class="icon">
+      <i class="fa fa-plus"></i>
+    </span>
+    <span>Add Photos</span>
+  </a>
+
+  <div class="columns is-multiline">
+    <div *ngFor="let photo of album.photos" class="column is-one-third">
+      <alb-photo
+        [photoId]="photo.id">
+      </alb-photo>
+    </div>
+  </div>
+</div>

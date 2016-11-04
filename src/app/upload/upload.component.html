@@ -1,0 +1,52 @@
+<a [routerLink]="['/albums', album.id]"
+  *ngIf="album">
+  <span class="title is-1">{{album.title}}</span>
+</a>
+
+<progress
+  *ngIf="isUploading"
+  [value]="loadingStatus"
+  max="100"
+  class="progress is-primary">
+  {{loadingStatus}}%
+</progress>
+
+<div class="columns">
+  <div class="column">
+    <div class="control is-grouped">
+      <p class="control">
+        <input
+          (change)="fileInputChange($event)"
+          type="file"
+          id="files"
+          name="files"
+          multiple="multiple"
+          class="file-input">
+        <label [class.is-loading]="loadingPreviews" class="button" for="files">Choose Files</label>
+      </p>
+      <p *ngIf="previews.length > 0" class="control">
+        <button [class.is-loading]="isUploading" (click)="upload()" class="button is-primary">
+          <span class="icon">
+            <i class="fa fa-upload"></i>
+          </span>
+          <span>Upload</span>
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="columns is-multiline">
+  <div *ngFor="let preview of previews" class="column is-one-quarter">
+    <figure class="image is-square">
+      <img [src]="preview">
+      <div class="preview-options">
+        <div class="control is-grouped">
+          <p class="control">
+            <button (click)="remove(preview)" class="button is-danger">Remove</button>
+          </p>
+        </div>
+      </div>
+    </figure>
+  </div>
+</div>

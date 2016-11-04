@@ -1,0 +1,16 @@
+.loading.icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.photo-options {
+  background-color: rgba(0, 0, 0, .5);
+  padding: 3px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

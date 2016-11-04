@@ -1,0 +1,22 @@
+<header class="nav">
+  <div class="container">
+    <div class="nav-left">
+      <a class="nav-item is-brand" routerLink="/">
+        <h1 class="title">Alb</h1>
+      </a>
+    </div>
+
+    <div class="nav-center">
+      <span *ngIf="currentAccount" class="nav-item">
+        <a (click)="logout()" class="button is-info">
+          <span>Logout {{currentAccount.email}}</span>
+        </a>
+      </span>
+      <span class="nav-item">
+        <a [routerLink]="['/share', 'albums']" class="button is-info">
+          <span>New Share</span>
+        </a>
+      </span>
+    </div>
+  </div>
+</header>

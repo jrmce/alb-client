@@ -1,0 +1,15 @@
+<figure class="image is-square">
+  <img *ngIf="photo" [src]="photoSrc">
+  <div *ngIf="!photo">
+    <span class="loading icon">
+      <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+    </span>
+  </div>
+  <div *ngIf="showShare" class="photo-options">
+    <div class="control is-grouped">
+      <p class="control">
+        <button class="button is-info">Add</button>
+      </p>
+    </div>
+  </div>
+</figure>

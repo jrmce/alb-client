@@ -1,0 +1,14 @@
+<div class="columns">
+  <div class="column">
+    <div class="control is-grouped">
+      <p [class.is-loading]="isLoading" class="control is-expanded">
+        <input class="input" type="text" placeholder="Create Album" #albumTitle>
+      </p>
+      <p class="control">
+        <button
+          (click)="create(albumTitle.value); albumTitle.value = ''"
+          class="button is-info">Create</button>
+      </p>
+    </div>
+  </div>
+</div>

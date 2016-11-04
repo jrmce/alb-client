@@ -1,0 +1,8 @@
+<div>
+  <alb-create-album (onCreated)="onCreated($event)"></alb-create-album>
+  <div class="columns is-multiline">
+    <div *ngFor="let album of albums" class="column is-on-third">
+      <alb-album [album]="album" (onDeleted)="onDeleted($event)"></alb-album>
+    </div>
+  </div>
+</div>

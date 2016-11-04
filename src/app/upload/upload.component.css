@@ -1,0 +1,21 @@
+.file-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+span.title {
+  display: block;
+  padding-bottom: 16px;
+}
+
+.preview-options {
+  background-color: rgba(0, 0, 0, .5);
+  padding: 3px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

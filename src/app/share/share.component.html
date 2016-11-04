@@ -1,0 +1,20 @@
+<div>
+  <div class="tabs">
+    <ul>
+      <li [routerLink]="['/share', 'albums']" routerLinkActive="is-active"><a>Albums</a></li>
+      <li [routerLink]="['/share', 'photos']" routerLinkActive="is-active"><a>Photos</a></li>
+    </ul>
+  </div>
+
+  <div *ngIf="show === 'albums'" class="columns is-multiline">
+    <div *ngFor="let album of albums" class="column is-on-third">
+      <alb-album [album]="album" [shareButtons]="true"></alb-album>
+    </div>
+  </div>
+
+  <div *ngIf="show === 'photos'" class="columns is-multiline">
+    <div *ngFor="let photo of photos" class="column is-one-third">
+      <alb-photo (click)="addPhoto(photo)" [photoId]="photo.id"></alb-photo>
+    </div>
+  </div>
+</div>
