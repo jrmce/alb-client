@@ -2,7 +2,7 @@ import { Injectable }       from '@angular/core';
 import { Http, Headers }    from '@angular/http';
 import { BehaviorSubject }  from 'rxjs/BehaviorSubject';
 
-import { Account }        from './account';
+import { Account }        from '../models/account';
 
 @Injectable()
 export class AuthService {
@@ -98,6 +98,12 @@ export class AuthService {
         return account;
       })
       .catch(this.handleError);
+  }
+
+  getToken(): string {
+    if (this.isAuthenticated()) {
+      return localStorage.getItem('authToken');
+    }
   }
 
   private handleError(error: any): Promise<any> {

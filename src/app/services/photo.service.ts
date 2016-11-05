@@ -1,41 +1,56 @@
 import { Injectable }     from '@angular/core';
 import { Headers, Http }  from '@angular/http';
 
-import { Photo }          from './photo';
+import { Photo }          from '../models/photo';
+import { AuthService }  from './auth.service';
 
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class PhotoService {
 
-  private headers = new Headers({ 'Content-Type': 'application/json' });
   private url = 'http://localhost:8080/photos';
+  private headers = new Headers({ 'Content-Type': 'application/json' });
 
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    private authService: AuthService) { }
 
   getAll(): Promise<Photo[]> {
-    return this.http.get(this.url)
+    this.headers.set('Authorization', this.authService.getToken());
+
+    return this.http
+      .get(this.url, { headers: this.headers })
       .toPromise()
       .then(response => response.json().items as Photo[])
       .catch(this.handleError);
   }
 
   get(id: number): Promise<Photo> {
-    return this.http.get(`${this.url}/${id}`)
+    this.headers.set('Authorization', this.authService.getToken());
+
+    return this.http
+      .get(`${this.url}/${id}`, { headers: this.headers })
       .toPromise()
       .then(response => response.json().photo as Photo)
       .catch(this.handleError);
   }
 
   create(albumId: number, photo: string): Promise<Photo> {
-    return this.http.post(`http://localhost:8080/albums/${albumId}/photos`, JSON.stringify({ data: photo }), { headers: this.headers })
+    this.headers.set('Authorization', this.authService.getToken());
+
+    return this.http
+      .post(`http://localhost:8080/albums/${albumId}/photos`, JSON.stringify({ data: photo }), { headers: this.headers })
       .toPromise()
       .then(response => response.json().photo as Photo)
       .catch(this.handleError);
   }
 
   delete(id: number): Promise<void> {
-    return this.http.delete(`${this.url}/${id}`, { headers: this.headers })
+    this.headers.set('Authorization', this.authService.getToken());
+
+    return this.http
+      .delete(`${this.url}/${id}`, { headers: this.headers })
       .toPromise()
       .then(() => null)
       .catch(this.handleError);

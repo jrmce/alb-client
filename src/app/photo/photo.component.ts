@@ -1,7 +1,13 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { 
+  Component,
+  Input, 
+  Output, 
+  EventEmitter, 
+  OnInit 
+} from '@angular/core';
 
-import { Photo }                                  from '../photo';
-import { PhotoService }                           from '../photo.service';
+import { Photo } from '../models/photo';
+import { PhotoService } from '../services/photo.service';
 
 @Component({
   selector: 'alb-photo',

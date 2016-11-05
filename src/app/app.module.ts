@@ -16,10 +16,10 @@ import { PhotoComponent } from './photo/photo.component';
 import { ShareComponent } from './share/share.component';
 import { SignupComponent } from './signup/signup.component';
 import { UploadComponent } from './upload/upload.component';
-import { AuthService } from './auth.service';
-import { AlbumService } from './album.service';
-import { PhotoService } from './photo.service';
-import { ShareService } from './share.service';
+import { AuthService } from './services/auth.service';
+import { AlbumService } from './services/album.service';
+import { PhotoService } from './services/photo.service';
+import { ShareService } from './services/share.service';
 import { AuthGuard } from './auth.guard';
 import { routing } from './app.routing';
 

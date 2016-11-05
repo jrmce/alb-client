@@ -1,8 +1,8 @@
-import { Component, OnInit }  from '@angular/core';
-import { Router }             from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { AlbumService }       from '../album.service';
-import { Album }              from '../album';
+import { AlbumService } from '../services/album.service';
+import { Album } from '../models/album';
 
 @Component({
   selector: 'alb-dashboard',

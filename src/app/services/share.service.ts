@@ -1,7 +1,8 @@
-import { Injectable }     from '@angular/core';
-import { Headers, Http }  from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Headers, Http } from '@angular/http';
 
-import { Share }          from './share';
+import { Share } from '../models/share';
+import { AuthService } from './auth.service';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -11,9 +12,13 @@ export class ShareService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private url = 'http://localhost:8080/shares';
 
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http,
+    private authService: AuthService) { }
 
   getAll(): Promise<Share[]> {
+    this.headers.set('Authorization', this.authService.getToken());
+
     return this.http.get(this.url)
       .toPromise()
       .then(response => response.json().items as Share[])
@@ -21,6 +26,8 @@ export class ShareService {
   }
 
   get(id: number): Promise<Share> {
+    this.headers.set('Authorization', this.authService.getToken());
+
     return this.http.get(`${this.url}/${id}`)
       .toPromise()
       .then(response => response.json().share as Share)
@@ -28,6 +35,8 @@ export class ShareService {
   }
 
   create(share: Share): Promise<Share> {
+    this.headers.set('Authorization', this.authService.getToken());
+
     return this.http.post(this.url, JSON.stringify(share), { headers: this.headers })
       .toPromise()
       .then(response => response.json().share as Share)
@@ -35,6 +44,8 @@ export class ShareService {
   }
 
   delete(id: number): Promise<void> {
+    this.headers.set('Authorization', this.authService.getToken());
+
     return this.http.delete(`${this.url}/${id}`, { headers: this.headers })
       .toPromise()
       .then(() => null)

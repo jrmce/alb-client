@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
-import { AlbumService }       from '../album.service';
-import { Album }              from '../album';
+import { AlbumService } from '../services/album.service';
+import { Album } from '../models/album';
 
 @Component({
   selector: 'alb-create-album',
@@ -20,11 +20,7 @@ export class CreateAlbumComponent {
     title = title.trim();
     this.isLoading = true;
 
-    const album: Album = {
-      title: title.trim()
-    };
-
-    this.albumService.create(album)
+    this.albumService.create(title.trim())
       .then(response => {
         this.isLoading = false;
         this.onCreated.emit(response);

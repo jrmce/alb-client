@@ -1,13 +1,13 @@
-import { ModuleWithProviders }  from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent }   from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { AlbumDetailComponent } from './album-detail/album-detail.component';
-import { UploadComponent }      from './upload/upload.component';
-import { ShareComponent }       from './share/share.component';
-import { LoginComponent }       from './login/login.component';
-import { SignupComponent }      from './signup/signup.component';
-import { AuthGuard }            from './auth.guard';
+import { UploadComponent } from './upload/upload.component';
+import { ShareComponent } from './share/share.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { AuthGuard } from './auth.guard';
 
 const appRoutes: Routes = [
   {

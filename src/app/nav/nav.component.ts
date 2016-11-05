@@ -1,14 +1,13 @@
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 import {
   Component,
   OnInit,
   OnDestroy
-}
-                          from '@angular/core';
-import { Router }         from '@angular/router';
-import { Subscription }   from 'rxjs/Subscription';
+} from '@angular/core';
 
-import { AuthService }    from '../auth.service';
-import { Account }        from '../account';
+import { AuthService } from '../services/auth.service';
+import { Account } from '../models/account';
 
 @Component({
   selector: 'alb-nav',

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params }                 from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { AlbumService }       from '../album.service';
-import { PhotoService }       from '../photo.service';
-import { Photo }              from '../photo';
-import { Album }              from '../album';
+import { AlbumService } from '../services/album.service';
+import { PhotoService } from '../services/photo.service';
+import { Photo } from '../models/photo';
+import { Album } from '../models/album';
 
 @Component({
   selector: 'alb-upload',

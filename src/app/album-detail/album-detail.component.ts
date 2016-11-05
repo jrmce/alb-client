@@ -1,10 +1,10 @@
-import { Component, OnInit }              from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { AlbumService }                   from '../album.service';
-import { PhotoService }                   from '../photo.service';
-import { Album }                          from '../album';
-import { Photo }                          from '../photo';
+import { AlbumService } from '../services/album.service';
+import { PhotoService } from '../services/photo.service';
+import { Album } from '../models/album';
+import { Photo } from '../models/photo';
 
 @Component({
   selector: 'alb-album-detail',
